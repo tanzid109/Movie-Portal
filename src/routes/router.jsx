@@ -2,12 +2,13 @@ import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router-dom";
+import Hompage from "../Pages/Hompage";
 
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <p>hello</p>
+        element: <Hompage></Hompage>
     },
 ]);
 export default router
