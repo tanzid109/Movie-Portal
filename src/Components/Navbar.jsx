@@ -1,4 +1,4 @@
-import { NavLink,Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 const Navbar = () => {
     return (
@@ -23,10 +23,10 @@ const Navbar = () => {
                         <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-[#f7e7cea9] rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                            <NavLink to="/" className="font-semibold text-base text-[#401F3E]">Home</NavLink>
-                            <NavLink to="/userProfile" className="font-semibold text-base  mt-2">All Movies</NavLink>
-                            <NavLink to="/updateProfile" className="font-semibold text-base  mt-2">Add Movie</NavLink>
-                            <NavLink to="/updateProfile" className="font-semibold text-base mt-2">My Favorites</NavLink>
+                            <NavLink to="/" className="font-semibold text-base ">Home</NavLink>
+                            <NavLink to="/allmovies" className="font-semibold text-base  mt-2">All Movies</NavLink>
+                            <NavLink to="/addmovie" className="font-semibold text-base  mt-2">Add Movie</NavLink>
+                            <NavLink to="/myfavourite" className="font-semibold text-base mt-2">My Favorites</NavLink>
                         </ul>
                     </div>
                     <div className="flex flex-row-reverse items-center gap-2">
@@ -36,23 +36,23 @@ const Navbar = () => {
                         {/* <img src={logo} className="h-12 hidden lg:block" alt="" /> */}
                     </div>
                 </div>
-                <div className="navbar-center  hidden lg:flex">
+                <div className="navbar-center hidden lg:flex">
                     <ul
-                        className=" p-2">
+                        className="p-2">
                         <NavLink to="/" className="font-semibold text-base">Home</NavLink>
-                        <NavLink to="/userProfile" className="font-semibold text-base  ml-4">All Movies</NavLink>
-                        <NavLink to="/updateProfile" className="font-semibold text-base  ml-4">Add Movie</NavLink>
-                        <NavLink to="/updateProfile" className="font-semibold text-base  ml-4">My Favorites</NavLink>
+                        <NavLink to="/allmovies" className="font-semibold text-base  ml-4">All Movies</NavLink>
+                        <NavLink to="/addmovie" className="font-semibold text-base  ml-4">Add Movie</NavLink>
+                        <NavLink to="/myfavourite" className="font-semibold text-base ml-4">My Favorites</NavLink>
                     </ul>
                 </div>
                 <div className="navbar-end">
                     <div className="flex justify-center items-center space-x-4 ">
-                        <button className="btn btn-outline rounded-br-2xl rounded-tl-3xl font-bold bg-gradient-to-b from-gray-600 to-gray-900 text-yellow-300 uppercase tracking-wide border-purple-500 shadow-md hover:shadow-white hover:scale-105 transition-transform">
+                        <NavLink to="/login" className="btn btn-outline rounded-br-2xl rounded-tl-3xl font-bold bg-gradient-to-b from-gray-600 to-gray-900 text-yellow-300 uppercase tracking-wide border-purple-500 shadow-md hover:shadow-white hover:scale-105 hover:text-white transition-transform">
                             Log In
-                        </button>
-                        <button className="btn btn-outline rounded-br-2xl rounded-tl-3xl font-bold bg-gradient-to-b from-gray-600 to-gray-900 text-yellow-300 uppercase tracking-wide border-purple-500 shadow-md hover:shadow-white hover:scale-105 transition-transform">
+                        </NavLink>
+                        <NavLink to="/register" className="btn btn-outline rounded-br-2xl rounded-tl-3xl font-bold bg-gradient-to-b from-gray-600 to-gray-900 text-yellow-300 uppercase tracking-wide border-purple-500 shadow-md hover:shadow-white hover:scale-105 hover:text-white transition-transform">
                             Register
-                        </button>
+                        </NavLink>
                     </div>
 
                 </div>
