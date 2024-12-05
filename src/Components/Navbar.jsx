@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+import { FaUser } from "react-icons/fa";
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext)
     return (
         <div>
             <div className="navbar bg-gradient-to-b from-gray-800 to-gray-900 text-yellow-500 p-4 ">
@@ -46,15 +50,26 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <div className="flex justify-center items-center space-x-4 ">
-                        <NavLink to="/login" className="btn btn-outline rounded-br-2xl rounded-tl-3xl font-bold bg-gradient-to-b from-gray-600 to-gray-900 text-yellow-300 uppercase tracking-wide border-purple-500 shadow-md hover:shadow-white hover:scale-105 hover:text-white transition-transform">
-                            Log In
-                        </NavLink>
-                        <NavLink to="/register" className="btn btn-outline rounded-br-2xl rounded-tl-3xl font-bold bg-gradient-to-b from-gray-600 to-gray-900 text-yellow-300 uppercase tracking-wide border-purple-500 shadow-md hover:shadow-white hover:scale-105 hover:text-white transition-transform">
-                            Register
-                        </NavLink>
+                    <div>
+                        {
+                            user && user?.email ?
+                                <div className="relative group w-12 h-12">
+                                    <img
+                                        src={user.photoURL}
+                                        alt="Placeholder"
+                                        className="w-full h-full object-cover rounded-full"
+                                    />
+                                    <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 rounded-lg">
+                                        <span className="text-white text-base font-normal">{user.displayName}</span>
+                                    </div>
+                                </div> :
+                                <FaUser className="text-2xl text-[#fdfdfd] mr-2"></FaUser>
+                        }
                     </div>
-
+                    {
+                        user && user?.email ? <button onClick={logOut} className="btn btn-outline text-base rounded-br-2xl rounded-tl-3xl font-medium bg-gradient-to-b from-gray-600 to-gray-900 text-yellow-300 uppercase tracking-wide border-purple-500 shadow-md hover:shadow-white hover:scale-105 hover:text-white transition-transform ml-2">Log Out</button> : <Link to="/login" className="btn btn-outline text-base rounded-br-2xl rounded-tl-3xl font-medium bg-gradient-to-b from-gray-600 to-gray-900 text-yellow-300 uppercase tracking-wide border-purple-500 shadow-md hover:shadow-white hover:scale-105 hover:text-white transition-transform">Log In</Link>
+                    }
+                    <Link to="/register" className="btn btn-outline text-base rounded-br-2xl rounded-tl-3xl font-medium bg-gradient-to-b from-gray-600 to-gray-900 text-yellow-300 uppercase tracking-wide border-purple-500 shadow-md hover:shadow-white hover:scale-105 hover:text-white transition-transform ml-4">Register</Link>
                 </div>
             </div>
         </div>

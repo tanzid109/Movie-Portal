@@ -11,32 +11,52 @@ import Register from "../Pages/Register"
 import MovieForm from "../Components/MovieForm";
 import MovieCard from "../Components/MovieCard";
 import MovieDetails from "../Components/MovieDetails";
+import PrivateRoute from "./PrivateRoute";
+import UpdateMovie from "../Components/UpdateMovie";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Homepage></Homepage>,
-        loader: () => fetch('http://localhost:5000/movie')      
+        loader: () => fetch('http://localhost:5000/movie')
     },
     {
         path: "/allmovies",
         element: <AllMovies></AllMovies>,
         loader: () => fetch('http://localhost:5000/movie')
-
     },
     {
         path: "/allmovies/moviedetails/:id",
-        element: <MovieDetails></MovieDetails>,
-        loader: ({params}) => fetch(`http://localhost:5000/movie/${params.id}`)
-
+        element: <PrivateRoute>
+            <MovieDetails></MovieDetails>
+        </PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/movie/${params.id}`)
+    },
+    {
+        path: "/moviedetails/:id",
+        element: <PrivateRoute>
+            <MovieDetails></MovieDetails>
+        </PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/movie/${params.id}`)
     },
     {
         path: "/addmovie",
-        element:<MovieForm></MovieForm>
+        element: <PrivateRoute>
+            <MovieForm></MovieForm>
+        </PrivateRoute>
+    },
+    {
+        path: "/updatemovie/:id",
+        element: <PrivateRoute>
+            <UpdateMovie></UpdateMovie>
+        </PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/movie/${params.id}`)
     },
     {
         path: "/myfavourite",
-        element: <MyFavourite></MyFavourite>,
+        element: <PrivateRoute>
+            <MyFavourite></MyFavourite>
+        </PrivateRoute>,
         loader: () => fetch('http://localhost:5000/favmovie')
     },
     {
