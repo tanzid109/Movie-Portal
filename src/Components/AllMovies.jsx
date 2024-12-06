@@ -12,7 +12,7 @@ const AllMovies = () => {
             <div>
                 <p className="text-3xl text-center text-white p-5 bg-gray-800 font-bold mb-5">All Movies</p>
             </div>
-            <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mx-auto w-11/12 gap-5'>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mx-auto w-11/12 gap-5 mb-5'>
                 {
                     movie.map((item) => <CategoryCard 
                     movie={movie} 

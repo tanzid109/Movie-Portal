@@ -59,7 +59,7 @@ const Register = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="min-h-screen flex justify-center items-center">
+            <div className="lg:min-h-screen flex justify-center items-center p-2">
                 <div className="card bg-gradient-to-bl from-indigo-700 via-gray-700 to-black text-white w-full max-w-lg shrink-0 p-4 rounded-lg my-4">
                     <h2 className="text-2xl font-bold text-center mt-4">Register Your Account</h2>
                     <form onSubmit={handleSubmit} className="card-body">
@@ -84,7 +84,7 @@ const Register = () => {
                             </label>
                             <input type="text"
                                 placeholder="Photo-URL"
-                                className="input input-bordered"
+                                className="input input-bordered text-black"
                                 name="photo"
                                 required />
                         </div>
@@ -94,7 +94,7 @@ const Register = () => {
                             </label>
                             <input type="email"
                                 placeholder="email"
-                                className="input input-bordered"
+                                className="input input-bordered text-black"
                                 name="email"
                                 required />
                         </div>
@@ -105,7 +105,7 @@ const Register = () => {
                             <input type={showPassword ? 'text' : 'password'}
                                 placeholder="password"
                                 name="password"
-                                className="input input-bordered"
+                                className="input input-bordered text-black"
                                 required />
                             <button
                                 onClick={() => { setShowPassword(!showPassword) }}
@@ -124,7 +124,7 @@ const Register = () => {
                             <button className="btn btn-outline text-base rounded-br-2xl rounded-tl-3xl font-medium bg-gradient-to-b from-gray-600 to-gray-900 text-yellow-300 uppercase tracking-wide border-purple-500 shadow-md hover:shadow-white hover:scale-105 hover:text-white transition-transform my-2 w-1/2 mx-auto">Register</button>
                         </div>
                     </form>
-                    <p className="text-center font-semibold">Already Have an account? <Link to="/auth/login" className="text-blue-600">Login Now</Link></p>
+                    <p className="text-center font-semibold">Already Have an account? <Link to="/login" className="text-blue-600">Login Now</Link></p>
                 </div>
             </div>
         </div>

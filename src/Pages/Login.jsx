@@ -41,8 +41,8 @@ const Login = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="min-h-screen flex justify-center items-center my-2">
-                <div className="card bg-gradient-to-bl from-indigo-700 via-gray-700 to-black text-white w-full max-w-lg shrink-0 p-4 rounded-lg my-4">
+            <div className="lg:min-h-screen flex justify-center items-center lg:my-2 p-2">
+                <div className="card bg-gradient-to-bl from-indigo-700 via-gray-700 to-black text-white w-full max-w-lg shrink-0 p-4 rounded-lg lg:my-4">
                     <h2 className="text-2xl font-bold text-center mt-4">Login Your Account</h2>
                     <form onSubmit={handleLogin} className="card-body">
                         <div className="form-control">
@@ -58,7 +58,7 @@ const Login = () => {
                             <input type={showPassword ? 'text' : 'password'}
                                 placeholder="password"
                                 name="password"
-                                className="input input-bordered"
+                                className="input input-bordered text-black"
                                 required />
                             <button
                                 onClick={() => { setShowPassword(!showPassword) }}
@@ -80,7 +80,10 @@ const Login = () => {
                             <button className="btn btn-primary">Login</button>
                         </div>
                     </form>
+                    
                     <p className="text-center font-semibold">New here? <Link to="/register" className="text-blue-600">Register Now</Link></p>
+                    <p className="text-center text-base font-bold ">Or</p>
+
                     <button onClick={handleLoginGoogle} className="btn btn-outline text-base rounded-br-2xl rounded-tl-3xl font-medium bg-gradient-to-b from-gray-600 to-gray-900 text-yellow-300 uppercase tracking-wide border-purple-500 shadow-md hover:shadow-white hover:scale-105 hover:text-white transition-transform my-2 w-1/2 mx-auto"><FcGoogle className="text-2xl hidden lg:block"></FcGoogle>Login With Google</button>
                 </div>
             </div>
