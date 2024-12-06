@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaUser } from "react-icons/fa";
+import { VscGripper } from "react-icons/vsc";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
@@ -11,7 +12,7 @@ const Navbar = () => {
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                            <svg
+                            {/* <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="h-5 w-5"
                                 fill="none"
@@ -22,11 +23,12 @@ const Navbar = () => {
                                     strokeLinejoin="round"
                                     strokeWidth="2"
                                     d="M4 6h16M4 12h8m-8 6h16" />
-                            </svg>
+                            </svg> */}
+                            <VscGripper className="text-2xl"></VscGripper>
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-[#f7e7cea9] rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm dropdown-content bg-gradient-to-b from-gray-800 to-gray-900 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                             <NavLink to="/" className="font-semibold text-base ">Home</NavLink>
                             <NavLink to="/allmovies" className="font-semibold text-base  mt-2">All Movies</NavLink>
                             <NavLink to="/addmovie" className="font-semibold text-base  mt-2">Add Movie</NavLink>

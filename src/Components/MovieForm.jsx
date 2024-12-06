@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Rating } from 'react-simple-star-rating';
 import Navbar from './Navbar';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const MovieForm = () => {
     const [formData, setFormData] = useState({
@@ -12,6 +14,7 @@ const MovieForm = () => {
         rating: 0,
         summary: '',
     });
+    const navigate = useNavigate()
 
     const [errors, setErrors] = useState({});
 
@@ -58,8 +61,13 @@ const MovieForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (validate()) {
-            console.log('Form Submitted:', formData);
-            alert('Movie added successfully!');
+            // console.log('Form Submitted:', formData);
+            Swal.fire({
+                title: "Good job!",
+                text: "Your Movie Added",
+                icon: "success"
+            });
+            navigate("/")
             setFormData({
                 poster: '',
                 title: '',
@@ -72,7 +80,7 @@ const MovieForm = () => {
             setErrors({});
             //data send to server
 
-            fetch('http://localhost:5000/movie', {
+            fetch('https://assaingment-10-server.vercel.app/movie', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -81,7 +89,7 @@ const MovieForm = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    // console.log(data);
                 })
         }
     };
@@ -89,9 +97,9 @@ const MovieForm = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="max-w-xl mx-auto p-6 bg-gradient-to-bl from-indigo-700 via-gray-700 to-black shadow-lg rounded-lg text-white mt-5">
-                <h2 className="text-2xl font-bold mb-4">Add a Movie</h2>
-                <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="min-h-screen max-w-xl mx-auto p-6 bg-gradient-to-bl from-indigo-700 via-gray-700 to-black shadow-lg rounded-lg text-white mb-10 ">
+                <h2 className="text-2xl font-bold mb-4">Update Movie</h2>
+                <form onSubmit={handleSubmit} className="space-y-4 ">
                     {/* Movie Poster */}
                     <div>
                         <label className="block font-medium mb-1">Movie Poster (Link):</label>
@@ -100,7 +108,7 @@ const MovieForm = () => {
                             value={formData.poster}
                             name='poster'
                             onChange={(e) => setFormData({ ...formData, poster: e.target.value })}
-                            className="input input-bordered w-full"
+                            className="input input-bordered w-full hover:scale-105"
                         />
                         {errors.poster && <p className="text-red-500 text-sm">{errors.poster}</p>}
                     </div>
@@ -112,7 +120,7 @@ const MovieForm = () => {
                             type="text"
                             value={formData.title}
                             onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                            className="input input-bordered w-full"
+                            className="input input-bordered w-full hover:scale-105 text-black"
                             name='title'
                         />
                         {errors.title && <p className="text-red-500 text-sm">{errors.title}</p>}
@@ -124,7 +132,7 @@ const MovieForm = () => {
                         <select
                             value={formData.genre}
                             onChange={(e) => setFormData({ ...formData, genre: e.target.value })}
-                            className="select select-bordered w-full"
+                            className="select select-bordered w-full text-black hover:scale-105"
                             name='genre'
                         >
                             <option value="">Select Genre</option>
@@ -135,7 +143,7 @@ const MovieForm = () => {
                             ))}
                         </select>
                     </div>
-        
+
                     <div className='flex justify-around items-center'>
                         <div className='flex flex-col'>
                             {/* Release Year */}
@@ -144,7 +152,7 @@ const MovieForm = () => {
                                 <select
                                     value={formData.releaseYear}
                                     onChange={(e) => setFormData({ ...formData, releaseYear: e.target.value })}
-                                    className="select select-bordered w-full"
+                                    className="select select-bordered w-full text-black hover:scale-105"
                                     name='year'
                                 >
                                     <option value="">Select Year</option>
@@ -163,7 +171,7 @@ const MovieForm = () => {
                                     type="number"
                                     value={formData.duration}
                                     onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
-                                    className="input input-bordered w-full"
+                                    className="input input-bordered w-full text-black hover:scale-105"
                                     name='duration'
                                 />
                                 {errors.duration && <p className="text-red-500 text-sm">{errors.duration}</p>}
@@ -172,7 +180,7 @@ const MovieForm = () => {
                         {/* Rating */}
                         <div className=''>
                             <label className=" font-medium mb-1 flex">Rating:</label>
-                            <Rating className=''
+                            <Rating className='hover:scale-105'
                                 onClick={(rate) => setFormData({ ...formData, rating: rate })}
                                 ratingValue={formData.rating}
                             />
@@ -186,7 +194,7 @@ const MovieForm = () => {
                         <textarea
                             value={formData.summary}
                             onChange={(e) => setFormData({ ...formData, summary: e.target.value })}
-                            className="textarea textarea-bordered w-full"
+                            className="textarea textarea-bordered w-full hover:scale-105 text-black"
                             rows="4"
                             name='summary'
                         ></textarea>
@@ -194,9 +202,11 @@ const MovieForm = () => {
                     </div>
 
                     {/* Submit Button */}
-                    <button type="submit" className="btn btn-primary w-full">
-                        Add Movie
-                    </button>
+                    <div className='text-center'>
+                        <button type="submit" className="btn btn-outline text-base rounded-br-2xl rounded-tl-3xl font-medium bg-gradient-to-b from-gray-600 to-gray-900 text-yellow-300 uppercase tracking-wide border-purple-500 shadow-md hover:shadow-white hover:scale-105 hover:text-white transition-transform mb-5">
+                            Add Movie
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>

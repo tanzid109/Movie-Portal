@@ -18,26 +18,26 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <Homepage></Homepage>,
-        loader: () => fetch('http://localhost:5000/movie')
+        loader: () => fetch('https://assaingment-10-server.vercel.app/movie')
     },
     {
         path: "/allmovies",
         element: <AllMovies></AllMovies>,
-        loader: () => fetch('http://localhost:5000/movie')
+        loader: () => fetch('https://assaingment-10-server.vercel.app/movie')
     },
     {
         path: "/allmovies/moviedetails/:id",
         element: <PrivateRoute>
             <MovieDetails></MovieDetails>
         </PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/movie/${params.id}`)
+        loader: ({ params }) => fetch(`https://assaingment-10-server.vercel.app/movie/${params.id}`)
     },
     {
         path: "/moviedetails/:id",
         element: <PrivateRoute>
             <MovieDetails></MovieDetails>
         </PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/movie/${params.id}`)
+        loader: ({ params }) => fetch(`https://assaingment-10-server.vercel.app/movie/${params.id}`)
     },
     {
         path: "/addmovie",
@@ -50,14 +50,14 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
             <UpdateMovie></UpdateMovie>
         </PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/movie/${params.id}`)
+        loader: ({ params }) => fetch(`https://assaingment-10-server.vercel.app/movie/${params.id}`)
     },
     {
         path: "/myfavourite",
         element: <PrivateRoute>
             <MyFavourite></MyFavourite>
         </PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/favmovie')
+        loader: () => fetch('https://assaingment-10-server.vercel.app/favmovie')
     },
     {
         path: "/login",

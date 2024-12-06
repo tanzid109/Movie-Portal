@@ -1,13 +1,14 @@
-import { useNavigate, useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
 const MovieDetails = ({ movie, setMovie }) => {
     const data = useLoaderData();
+    const navigate = useNavigate();
     const { _id, poster, title, genre, releaseYear, duration, rating, summary } = data
     const handleDelete = _id => {
-        console.log(_id);
+        // console.log(_id);
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -18,21 +19,19 @@ const MovieDetails = ({ movie, setMovie }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/movie/${_id}`, {
+                fetch(`https://assaingment-10-server.vercel.app/movie/${_id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
                         if (data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",
                                 text: "Your movie has been deleted.",
                                 icon: "success"
                             });
-                            const remaining = movie.filter(mov=> mov._id!==_id)
-                            setMovie(remaining)
-                            navigate('/')
+                            navigate("/allmovies")
                         }
                     })
             }
@@ -40,26 +39,28 @@ const MovieDetails = ({ movie, setMovie }) => {
     }
     const handleFavourite = async () => {
         try {
-            const response = await fetch('http://localhost:5000/favmovie', {
+            const response = await fetch('https://assaingment-10-server.vercel.app/favmovie', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', },
                 body: JSON.stringify({ poster, title }),
             });
             const result = await response.json();
-            console.log(result);
-            alert(`${title} has been added to your favorites!`);
+            // console.log(result);
+            Swal.fire({
+                title: "Added!",
+                text: "Your movie has been added to favourite.",
+                icon: "success"
+            });
+            navigate("/")
         }
         catch (error) { console.error("There was an error adding the movie to favorites!", error); }
-    }
-    const handleUpdate = _id =>{
-        console.log(_id);
     }
     return (
         <div>
             <div>
                 <Navbar></Navbar>
             </div>
-            <div className=" flex justify-center items-center px-5 my-5 bg-gray-800 shadow-lg  rounded-lg">
+            <div className="min-h-screen flex justify-center items-center px-5 my-5 bg-gray-800 shadow-lg  rounded-lg">
                 {/* Movie Poster */}
                 <figure>
                     <img

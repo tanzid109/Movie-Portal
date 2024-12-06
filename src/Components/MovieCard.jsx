@@ -6,7 +6,7 @@ const MovieCard = () => {
     return (
         <div className="text-center mb-5">
             <div>
-                <p className="text-3xl text-center text-white p-5 bg-black font-bold">Movies</p>
+                <p className="text-3xl text-center text-white p-5 bg-gray-900 font-bold mb-5">Featured Movies</p>
             </div>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mx-auto w-11/12 gap-5'>
                 {

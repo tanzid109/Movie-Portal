@@ -11,8 +11,8 @@ const AddMovie = () => {
         const year = form.year.value;
         const photo = form.photo.value;
         const movie = { title, rating, genre, duration, year, photo }
-        console.log(movie);
-        fetch('http://localhost:5000/movie', {
+        // console.log(movie);
+        fetch('https://assaingment-10-server.vercel.app/movie', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -21,7 +21,7 @@ const AddMovie = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
             })
 
     }

@@ -7,8 +7,7 @@ const MyFavourite = () => {
 
     const data = useLoaderData();
     const [movies,setMovies]=useState(data)
-    console.log(movies);
-
+    // console.log(movies);
     return (
         <div>
             <Navbar></Navbar>

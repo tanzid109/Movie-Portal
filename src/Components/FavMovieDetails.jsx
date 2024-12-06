@@ -4,9 +4,10 @@ import Swal from 'sweetalert2';
 
 const FavMovieDetails = ({ movie, movies, setMovies }) => {
     const { _id, poster, title, genre, releaseYear, duration, rating } = movie;
+    const navigate = useNavigate()
 
     const handleDelete = _id => {
-        console.log(_id);
+        // console.log(_id);
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -17,12 +18,12 @@ const FavMovieDetails = ({ movie, movies, setMovies }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/favmovie/${_id}`, {
+                fetch(`https://assaingment-10-server.vercel.app/favmovie/${_id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
                         if (data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",
@@ -31,12 +32,12 @@ const FavMovieDetails = ({ movie, movies, setMovies }) => {
                             });
                             const remaining = movies.filter(mov => mov._id !== _id)
                             setMovies(remaining)
+                            navigate("/myfavourite")
                         }
                     })
             }
         });
     }
-
 
     return (
         <div className="card bg-gray-800 shadow-lg text-white hover:scale-105 transition-transform duration-300 rounded-lg p-5">
