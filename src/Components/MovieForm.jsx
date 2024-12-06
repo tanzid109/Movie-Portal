@@ -89,7 +89,7 @@ const MovieForm = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="max-w-xl mx-auto p-6 bg-white shadow-lg rounded-lg">
+            <div className="max-w-xl mx-auto p-6 bg-gradient-to-bl from-indigo-700 via-gray-700 to-black shadow-lg rounded-lg text-white mt-5">
                 <h2 className="text-2xl font-bold mb-4">Add a Movie</h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
                     {/* Movie Poster */}
@@ -135,47 +135,49 @@ const MovieForm = () => {
                             ))}
                         </select>
                     </div>
-
-                    {/* Duration */}
-                    <div>
-                        <label className="block font-medium mb-1">Duration (in minutes):</label>
-                        <input
-                            type="number"
-                            value={formData.duration}
-                            onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
-                            className="input input-bordered w-full"
-                            name='duration'
-                        />
-                        {errors.duration && <p className="text-red-500 text-sm">{errors.duration}</p>}
-                    </div>
-
-                    {/* Release Year */}
-                    <div>
-                        <label className="block font-medium mb-1">Release Year:</label>
-                        <select
-                            value={formData.releaseYear}
-                            onChange={(e) => setFormData({ ...formData, releaseYear: e.target.value })}
-                            className="select select-bordered w-full"
-                            name='year'
-                        >
-                            <option value="">Select Year</option>
-                            {releaseYears.map((year) => (
-                                <option key={year} value={year}>
-                                    {year}
-                                </option>
-                            ))}
-                        </select>
-                        {errors.releaseYear && <p className="text-red-500 text-sm">{errors.releaseYear}</p>}
-                    </div>
-
-                    {/* Rating */}
-                    <div>
-                        <label className=" font-medium mb-1 flex">Rating:</label>
-                        <Rating className=''
-                            onClick={(rate) => setFormData({ ...formData, rating: rate })}
-                            ratingValue={formData.rating}
-                        />
-                        {errors.rating && <p className="text-red-500 text-sm">{errors.rating}</p>}
+        
+                    <div className='flex justify-around items-center'>
+                        <div className='flex flex-col'>
+                            {/* Release Year */}
+                            <div>
+                                <label className="block font-medium mb-1">Release Year:</label>
+                                <select
+                                    value={formData.releaseYear}
+                                    onChange={(e) => setFormData({ ...formData, releaseYear: e.target.value })}
+                                    className="select select-bordered w-full"
+                                    name='year'
+                                >
+                                    <option value="">Select Year</option>
+                                    {releaseYears.map((year) => (
+                                        <option key={year} value={year}>
+                                            {year}
+                                        </option>
+                                    ))}
+                                </select>
+                                {errors.releaseYear && <p className="text-red-500 text-sm">{errors.releaseYear}</p>}
+                            </div>
+                            {/* Duration */}
+                            <div>
+                                <label className="block font-medium mb-1">Duration (in minutes):</label>
+                                <input
+                                    type="number"
+                                    value={formData.duration}
+                                    onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
+                                    className="input input-bordered w-full"
+                                    name='duration'
+                                />
+                                {errors.duration && <p className="text-red-500 text-sm">{errors.duration}</p>}
+                            </div>
+                        </div>
+                        {/* Rating */}
+                        <div className=''>
+                            <label className=" font-medium mb-1 flex">Rating:</label>
+                            <Rating className=''
+                                onClick={(rate) => setFormData({ ...formData, rating: rate })}
+                                ratingValue={formData.rating}
+                            />
+                            {errors.rating && <p className="text-red-500 text-sm">{errors.rating}</p>}
+                        </div>
                     </div>
 
                     {/* Summary */}

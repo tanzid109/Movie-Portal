@@ -41,19 +41,19 @@ const Login = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className=" flex justify-center items-center mt-5">
-                <div className="card bg-[#F7E7CE] w-full max-w-lg shrink-0 rounded-lg p-4">
-                    <h2 className="text-2xl font-semibold text-center mt-4">Login Your Account</h2>
+            <div className="min-h-screen flex justify-center items-center my-2">
+                <div className="card bg-gradient-to-bl from-indigo-700 via-gray-700 to-black text-white w-full max-w-lg shrink-0 p-4 rounded-lg my-4">
+                    <h2 className="text-2xl font-bold text-center mt-4">Login Your Account</h2>
                     <form onSubmit={handleLogin} className="card-body">
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Email</span>
+                                <span className="label-text text-white font-semibold text-base">Email</span>
                             </label>
                             <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Password</span>
+                                <span className="label-text text-white font-semibold text-base">Password</span>
                             </label>
                             <input type={showPassword ? 'text' : 'password'}
                                 placeholder="password"
@@ -73,16 +73,15 @@ const Login = () => {
                                 </label>)
                             }
                             <label className="label">
-                                <Link to="/resetEmail" className="label-text-alt link link-hover">Forgot password?</Link>
+                                <p className="label-text-alt link text-base text-white mt-2">Forgot password?</p>
                             </label>
                         </div>
-                        <div className="form-control mt-6">
+                        <div className="form-control mt-4">
                             <button className="btn btn-primary">Login</button>
                         </div>
                     </form>
-                    <p className="text-center font-semibold">New here? <Link to="/auth/register" className="text-blue-600">Register Now</Link></p>
-                    <hr />
-                    <button onClick={handleLoginGoogle} className="btn btn-outline w-1/2 mx-auto mt-5 text-base font-bold"><FcGoogle className="text-2xl hidden lg:block"></FcGoogle>Login With Google</button>
+                    <p className="text-center font-semibold">New here? <Link to="/register" className="text-blue-600">Register Now</Link></p>
+                    <button onClick={handleLoginGoogle} className="btn btn-outline text-base rounded-br-2xl rounded-tl-3xl font-medium bg-gradient-to-b from-gray-600 to-gray-900 text-yellow-300 uppercase tracking-wide border-purple-500 shadow-md hover:shadow-white hover:scale-105 hover:text-white transition-transform my-2 w-1/2 mx-auto"><FcGoogle className="text-2xl hidden lg:block"></FcGoogle>Login With Google</button>
                 </div>
             </div>
         </div>

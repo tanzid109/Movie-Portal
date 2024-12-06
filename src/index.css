@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.active{
+    color: white;
+    background-image: linear-gradient(rgb(35, 204, 13), rgb(201, 204, 6));
+    padding: 5px;
+    border-radius: 5px;
+}
