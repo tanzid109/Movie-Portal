@@ -24,32 +24,26 @@ const MovieForm = () => {
     const validate = () => {
         const newErrors = {};
 
-        // Poster validation
         if (!formData.poster.startsWith('http') || !formData.poster.includes('.')) {
             newErrors.poster = 'Poster must be a valid link.';
         }
 
-        // Title validation
         if (!formData.title || formData.title.length < 2) {
             newErrors.title = 'Title must have at least 2 characters.';
         }
 
-        // Duration validation
         if (!formData.duration || parseInt(formData.duration) <= 60) {
             newErrors.duration = 'Duration must be greater than 60 minutes.';
         }
 
-        // Release year validation
         if (!formData.releaseYear) {
             newErrors.releaseYear = 'Release year is required.';
         }
 
-        // Rating validation
         if (formData.rating === 0) {
             newErrors.rating = 'Rating is required.';
         }
 
-        // Summary validation
         if (!formData.summary || formData.summary.length < 10) {
             newErrors.summary = 'Summary must have at least 10 characters.';
         }
@@ -57,7 +51,6 @@ const MovieForm = () => {
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
-
     const handleSubmit = (e) => {
         e.preventDefault();
         if (validate()) {
@@ -67,7 +60,6 @@ const MovieForm = () => {
                 text: "Your Movie Added",
                 icon: "success"
             });
-            navigate("/")
             setFormData({
                 poster: '',
                 title: '',
@@ -77,6 +69,7 @@ const MovieForm = () => {
                 rating: 0,
                 summary: '',
             });
+            navigate("/")
             setErrors({});
             //data send to server
 
@@ -101,7 +94,6 @@ const MovieForm = () => {
                 <div className="min-h-screen max-w-xl mx-auto p-6 bg-gradient-to-bl from-indigo-700 via-gray-700 to-black shadow-lg rounded-lg text-white my-5">
                     <h2 className="text-3xl font-extrabold mb-4 text-center text-white">Add Movie</h2>
                     <form onSubmit={handleSubmit} className="space-y-4 ">
-                        {/* Movie Poster */}
                         <div>
                             <label className="block font-medium mb-1">Movie Poster (Link):</label>
                             <input
@@ -113,8 +105,6 @@ const MovieForm = () => {
                             />
                             {errors.poster && <p className="text-red-500 text-sm">{errors.poster}</p>}
                         </div>
-
-                        {/* Movie Title */}
                         <div>
                             <label className="block font-medium mb-1">Movie Title:</label>
                             <input
@@ -126,8 +116,6 @@ const MovieForm = () => {
                             />
                             {errors.title && <p className="text-red-500 text-sm">{errors.title}</p>}
                         </div>
-
-                        {/* Genre */}
                         <div>
                             <label className="block font-medium mb-1">Genre:</label>
                             <select
@@ -144,10 +132,8 @@ const MovieForm = () => {
                                 ))}
                             </select>
                         </div>
-
                         <div className='flex justify-around items-center'>
                             <div className='flex flex-col'>
-                                {/* Release Year */}
                                 <div>
                                     <label className="block font-medium mb-1">Release Year:</label>
                                     <select
@@ -165,7 +151,6 @@ const MovieForm = () => {
                                     </select>
                                     {errors.releaseYear && <p className="text-red-500 text-sm">{errors.releaseYear}</p>}
                                 </div>
-                                {/* Duration */}
                                 <div>
                                     <label className="block font-medium mb-1">Duration (in minutes):</label>
                                     <input
@@ -178,7 +163,6 @@ const MovieForm = () => {
                                     {errors.duration && <p className="text-red-500 text-sm">{errors.duration}</p>}
                                 </div>
                             </div>
-                            {/* Rating */}
                             <div className=''>
                                 <label className=" font-medium mb-1 flex">Rating:</label>
                                 <Rating className='hover:scale-105'
@@ -188,8 +172,6 @@ const MovieForm = () => {
                                 {errors.rating && <p className="text-red-500 text-sm">{errors.rating}</p>}
                             </div>
                         </div>
-
-                        {/* Summary */}
                         <div>
                             <label className="block font-medium mb-1">Summary:</label>
                             <textarea
@@ -201,8 +183,6 @@ const MovieForm = () => {
                             ></textarea>
                             {errors.summary && <p className="text-red-500 text-sm">{errors.summary}</p>}
                         </div>
-
-                        {/* Submit Button */}
                         <div className='text-center'>
                             <button type="submit" className="btn btn-outline text-base rounded-br-2xl rounded-tl-3xl font-medium bg-gradient-to-b from-gray-600 to-gray-900 text-yellow-300 uppercase tracking-wide border-purple-500 shadow-md hover:shadow-white hover:scale-105 hover:text-white transition-transform mb-5">
                                 Add Movie

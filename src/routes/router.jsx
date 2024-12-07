@@ -13,6 +13,7 @@ import MovieCard from "../Components/MovieCard";
 import MovieDetails from "../Components/MovieDetails";
 import PrivateRoute from "./PrivateRoute";
 import UpdateMovie from "../Components/UpdateMovie";
+import Form from "../Components/Form";
 
 const router = createBrowserRouter([
     {
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
     {
         path: "/register",
         element: <Register></Register>,
+    },
+    {
+        path: "/form",
+        element: <Form></Form>,
     },
 
 

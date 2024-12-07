@@ -77,12 +77,12 @@ const Login = () => {
                             </label>
                         </div>
                         <div className="form-control mt-4">
-                            <button className="btn btn-primary">Login</button>
+                            <button className="btn btn-outline text-base rounded-br-2xl rounded-tl-3xl font-medium bg-gradient-to-b from-gray-600 to-gray-900 text-yellow-300 uppercase tracking-wide border-purple-500 shadow-md hover:shadow-white hover:scale-105 hover:text-white transition-transform my-2 w-1/2 mx-auto">Login</button>
                         </div>
                     </form>
                     
                     <p className="text-center font-semibold">New here? <Link to="/register" className="text-blue-600">Register Now</Link></p>
-                    <p className="text-center text-base font-bold ">Or</p>
+                    <div className="divider divider-primary">Or</div>
 
                     <button onClick={handleLoginGoogle} className="btn btn-outline text-base rounded-br-2xl rounded-tl-3xl font-medium bg-gradient-to-b from-gray-600 to-gray-900 text-yellow-300 uppercase tracking-wide border-purple-500 shadow-md hover:shadow-white hover:scale-105 hover:text-white transition-transform my-2 w-1/2 mx-auto"><FcGoogle className="text-2xl hidden lg:block"></FcGoogle>Login With Google</button>
                 </div>

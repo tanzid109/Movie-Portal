@@ -58,7 +58,7 @@ const Navbar = () => {
                         <NavLink to="/allmovies" className="font-semibold text-base  ml-4">All Movies</NavLink>
                         <NavLink to="/addmovie" className="font-semibold text-base  ml-4">Add Movie</NavLink>
                         <NavLink to="/myfavourite" className="font-semibold text-base ml-4">My Favorites</NavLink>
-                        <NavLink to="/myfavourite" className="font-semibold text-base ml-4">My Favorites</NavLink>
+                        <NavLink to="/form" className="font-semibold text-base ml-4">FeedBack</NavLink>
                     </ul>
                 </div>
                 <div className="navbar-end hidden lg:flex">
