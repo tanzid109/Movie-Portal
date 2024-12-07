@@ -49,7 +49,7 @@ const FavMovieDetails = ({ movie, movies, setMovies }) => {
                 />
             </figure>
             <div className="card-body justify-center items-center p-4">
-                <h2 className="card-title text-2xl text-center font-bold">{title}</h2>
+                <h2 className="card-title text-2xl text-center text-yellow-500 font-bold">{title}</h2>
                 <p className="text-sm"><strong>Genre : </strong> {genre}</p>
                 <p className="text-sm"><strong>Duration : </strong>{duration} min</p>
                 <p className="text-sm"><strong>Release Year : </strong> {releaseYear}</p>

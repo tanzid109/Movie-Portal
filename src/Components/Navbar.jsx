@@ -22,7 +22,7 @@ const Navbar = () => {
                             <NavLink to="/allmovies" className="font-semibold text-base  mt-2">All Movies</NavLink>
                             <NavLink to="/addmovie" className="font-semibold text-base  mt-2">Add Movie</NavLink>
                             <NavLink to="/myfavourite" className="font-semibold text-base mt-2">My Favorites</NavLink>
-                            <NavLink to="/form" className="font-semibold text-base ml-4">FeedBack</NavLink>
+                            <NavLink to="/form" className="font-semibold text-base mt-2">FeedBack</NavLink>
                             <div className="flex items-center bg-gray-700 rounded-lg p-2 mt-2">
                                 <div>
                                     {
