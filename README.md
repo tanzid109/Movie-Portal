@@ -1,8 +1,11 @@
-# React + Vite
+# Assingment 10
+    Category-Orchid (Movie-Portal)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+○ Attach Live Website Link : 
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ ○ Feature of this website
+1. Any registerd member can add movie.
+2. Also can upadate movies.
+3. website works 24/7.
+4. Login with google.
+5. Registerd member can see each movie details.
