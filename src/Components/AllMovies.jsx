@@ -7,7 +7,6 @@ const AllMovies = () => {
     const movies = useLoaderData();
     const [movie, setMovie] = useState(movies);
     const [search, setSearch] = useState("")
-    console.log(search);
     useEffect(() => {
         fetch(`https://assaingment-10-server.vercel.app/movie?searchParams=${search}`)
             .then(res => res.json())
