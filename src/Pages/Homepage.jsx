@@ -7,7 +7,7 @@ import Ban from "../Components/Ban";
 import Theme from "../Components/Theme";
 const Homepage = () => {
     return (
-        <div className="dark:bg-gray-800 light:bg-white">
+        <div className="dark:bg-[#1c1917] light:bg-[#f5f5f4]">
             <header>
                     <Navbar></Navbar>
                 <div className="text-center mt-5">

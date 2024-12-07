@@ -116,23 +116,7 @@ const MovieForm = () => {
                             />
                             {errors.title && <p className="text-red-500 text-sm">{errors.title}</p>}
                         </div>
-                        <div>
-                            <label className="block font-medium mb-1">Genre:</label>
-                            <select
-                                value={formData.genre}
-                                onChange={(e) => setFormData({ ...formData, genre: e.target.value })}
-                                className="select select-bordered  text-black hover:scale-105"
-                                name='genre'
-                            >
-                                <option value="">Select Genre</option>
-                                {genres.map((genre) => (
-                                    <option key={genre} value={genre}>
-                                        {genre}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
-                        <div className='flex justify-around items-center'>
+                        <div className='lg:flex justify-between items-center'>
                             <div className='flex flex-col'>
                                 <div>
                                     <label className="block font-medium mb-1">Release Year:</label>
@@ -162,14 +146,32 @@ const MovieForm = () => {
                                     />
                                     {errors.duration && <p className="text-red-500 text-sm">{errors.duration}</p>}
                                 </div>
-                            </div>
-                            <div className=''>
-                                <label className=" font-medium mb-1 flex">Rating:</label>
-                                <Rating className='hover:scale-105'
-                                    onClick={(rate) => setFormData({ ...formData, rating: rate })}
-                                    ratingValue={formData.rating}
-                                />
-                                {errors.rating && <p className="text-red-500 text-sm">{errors.rating}</p>}
+                            </div>                          
+                            <div>
+                                <div className='flex flex-col'>
+                                    <label className=" font-medium mb-1 flex">Rating:</label>
+                                    <Rating className='hover:scale-105'
+                                        onClick={(rate) => setFormData({ ...formData, rating: rate })}
+                                        ratingValue={formData.rating}
+                                    />
+                                    {errors.rating && <p className="text-red-500 text-sm">{errors.rating}</p>}
+                                </div>
+                                <div>
+                                    <label className="block font-medium mb-1">Genre:</label>
+                                    <select
+                                        value={formData.genre}
+                                        onChange={(e) => setFormData({ ...formData, genre: e.target.value })}
+                                        className="select select-bordered  text-black hover:scale-105"
+                                        name='genre'
+                                    >
+                                        <option value="">Select Genre</option>
+                                        {genres.map((genre) => (
+                                            <option key={genre} value={genre}>
+                                                {genre}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <div>

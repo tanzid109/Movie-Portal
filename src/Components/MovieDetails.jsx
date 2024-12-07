@@ -42,7 +42,7 @@ const MovieDetails = ({ movie, setMovie }) => {
             const response = await fetch('https://assaingment-10-server.vercel.app/favmovie', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', },
-                body: JSON.stringify({ poster, title }),
+                body: JSON.stringify({ poster, title, genre, releaseYear, duration, rating }),
             });
             const result = await response.json();
             // console.log(result);
@@ -62,7 +62,6 @@ const MovieDetails = ({ movie, setMovie }) => {
             </div>
             <div className="p-2">
                 <div className="min-h-screen flex lg:flex-row flex-col justify-center items-center px-5 my-5 bg-gray-800 shadow-lg  rounded-lg">
-                    {/* Movie Poster */}
                     <figure>
                         <img
                             src={poster}
@@ -70,9 +69,8 @@ const MovieDetails = ({ movie, setMovie }) => {
                             className=" p-5"
                         />
                     </figure>
-                    {/* Movie Details */}
                     <div className=" justify-center items-center p-4 text-white">
-                        <h2 className="lg:text-6xl text-2xl mb-4 text-yellow-500 uppercase  font-bold">{title}</h2>
+                        <h2 className="lg:text-6xl text-2xl mb-4 text-yellow-500 uppercase text-center font-bold">{title}</h2>
                         <p className="text-xl"><strong>Genre : </strong> {genre}</p>
                         <p className="text-xl"><strong>Duration : </strong>{duration} min</p>
                         <p className="text-xl"><strong>Release Year : </strong> {releaseYear}</p>

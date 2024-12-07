@@ -14,11 +14,13 @@ import MovieDetails from "../Components/MovieDetails";
 import PrivateRoute from "./PrivateRoute";
 import UpdateMovie from "../Components/UpdateMovie";
 import Form from "../Components/Form";
+import ErrorPage from "../Components/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Homepage></Homepage>,
+        errorElement: <ErrorPage></ErrorPage>,
         loader: () => fetch('https://assaingment-10-server.vercel.app/movie')
     },
     {
