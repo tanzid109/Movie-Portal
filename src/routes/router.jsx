@@ -30,16 +30,15 @@ const router = createBrowserRouter([
     },
     {
         path: "/allmovies/moviedetails/:id",
-        element: <PrivateRoute>
+        element: 
             <MovieDetails></MovieDetails>
-        </PrivateRoute>,
+        ,
         loader: ({ params }) => fetch(`https://assaingment-10-server.vercel.app/movie/${params.id}`)
     },
     {
         path: "/moviedetails/:id",
-        element: <PrivateRoute>
-            <MovieDetails></MovieDetails>
-        </PrivateRoute>,
+        element: 
+            <MovieDetails></MovieDetails>,
         loader: ({ params }) => fetch(`https://assaingment-10-server.vercel.app/movie/${params.id}`)
     },
     {

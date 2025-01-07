@@ -62,14 +62,14 @@ const MovieDetails = ({ movie, setMovie }) => {
             </div>
             <div className="p-2">
                 <div className="min-h-screen flex lg:flex-row flex-col justify-center items-center px-5 my-5 bg-gray-800 shadow-lg  rounded-lg">
-                    <figure>
+                    <figure className="flex-1">
                         <img
                             src={poster}
                             alt="Movie Poster"
                             className=" p-5"
                         />
                     </figure>
-                    <div className=" justify-center items-center p-4 text-white">
+                    <div className="flex-1 justify-center items-center p-4 text-white">
                         <h2 className="lg:text-6xl text-2xl mb-4 text-yellow-500 uppercase text-center font-bold">{title}</h2>
                         <p className="text-xl"><strong>Genre : </strong> {genre}</p>
                         <p className="text-xl"><strong>Duration : </strong>{duration} min</p>

@@ -194,6 +194,7 @@ const MovieForm = () => {
                 </div>
             </div>
         </div>
+        
     );
 };
 

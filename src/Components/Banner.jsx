@@ -6,7 +6,7 @@ const Banner = () => {
     return (
         <div className="py-5 w-11/12 mx-auto">
             <div className="carousel w-full">
-                <div id="slide1" className="carousel-item relative w-full ">
+                <div id="slide1" className="carousel-item relative w-full h-[70%]">
                     <img
                         src={image1}
                         className="w-full" />

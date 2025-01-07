@@ -9,6 +9,7 @@ const Register = () => {
     const [error, setError] = useState({})
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         const name = e.target.name.value;
@@ -17,6 +18,7 @@ const Register = () => {
             return;
         }
         const photo = e.target.photo.value;
+        
         const email = e.target.email.value;
         const password = e.target.password.value;
         // console.log(photo,email,password,name);
