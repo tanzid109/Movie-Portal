@@ -31,8 +31,6 @@ Here are the main dependencies used in the project:
 - (*react-icons*): (*^5.4.0*)  
 - (*react-router-dom*): (*^7.0.2*)  
 
-To see the full list of dependencies, refer to the `package.json` file.  
-
 ---
 
 ## Run Locally
